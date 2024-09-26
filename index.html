@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Color de Fondo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #cambiarColorBtn {
+            padding: 15px 30px;
+            font-size: 16px;
+            background-color: #6200ea;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #cambiarColorBtn:hover {
+            background-color: #3700b3;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="cambiarColorBtn">Cambiar color de fondo</button>
+
+    <script>
+        // Función para generar colores aleatorios en formato hexadecimal
+        function generarColorAleatorio() {
+            const letras = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letras[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // Función que cambia el color de fondo aleatoriamente
+        function cambiarColorDeFondo() {
+            const colores = [];
+            // Llenamos el arreglo con colores aleatorios
+            for (let i = 0; i < 10; i++) {
+                colores.push(generarColorAleatorio());
+            }
+            // Seleccionamos un color aleatorio del arreglo
+            const colorAleatorio = colores[Math.floor(Math.random() * colores.length)];
+            document.body.style.backgroundColor = colorAleatorio;
+        }
+
+        // Añadimos el evento de clic al botón
+        document.getElementById("cambiarColorBtn").addEventListener("click", cambiarColorDeFondo);
+    </script>
+
+</body>
+</html>
+
